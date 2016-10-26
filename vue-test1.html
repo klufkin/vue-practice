@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Title</title>
+    <title>Vue list</title>
     <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
     <!-- <link rel="stylesheet" href="assets/style.css"> -->
 </head>
@@ -16,50 +16,16 @@
 
 
     <div id="app">
+        <input type="text" v-model="newTodoText" v-on:keyup.enter="add" placeholder="Add a todo">
+        <button type="button" name="button" v-on:click="add">add</button>
         <ol>
-            <ol>
-                <!--
-                  Now we provide each todo-item with the todo object
-                  it's representing, so that its content can be dynamic
-                  -->
-                <todo-item v-for="todo in todos" v-bind:todo="todo"></todo-item>
-            </ol>
+            <todo-item v-for="(todo, index) in todos" v-bind:todo="todo" v-on:remove="remove(index)"></todo-item>
+        </ol>
     </div>
 
 
     <script src="https://unpkg.com/vue@next/dist/vue.js"></script>
-    <script type="text/javascript">
-        Vue.component('todo-item', {
-            props: ['todo'],
-            template: `<li>
-                            <span  v-if="todo.visible"> {{ todo.text }} </span>
-                            <button v-on:click="toggleView">toggle</button>
-                        </li>
-                        `,
-            methods: {
-                toggleView: function() {
-                    this.todo.visible = !this.todo.visible;
-
-                }
-            }
-
-        })
-
-        var app = new Vue({
-            el: '#app',
-            data: {
-                todos: [{
-                    text: 'Learn JavaScript',
-                    visible: true
-                }, {
-                    text: 'Learn Vue',
-                    visible: true
-                }, {
-                    text: 'Build something awesome',
-                    visible: true
-                }]
-            }
-        })
+    <script type="text/javascript" src="toVueList.js">
     </script>
 </body>
 
