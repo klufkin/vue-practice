@@ -19,15 +19,15 @@
         <input type="text" v-model="newTodoText" v-on:keyup.enter="add" placeholder="Add a todo">
         <button type="button" name="button" v-on:click="add">add</button>
         <ol>
-            <todo-item v-for="(todo, index) in todos" v-bind:todo="todo" v-on:remove="remove(index)"></todo-item>
+            <todo-item v-for="(todo, index) in todos" v-bind:todo="todo" v-on:remove="remove(index)" v-on:update="update(index)"></todo-item>
         </ol>
     </div>
 
     <!-- scripts -->
-    <script src="vue.js"></script>
-    <script type="text/javascript" src="fireCreds.js"></script>
-    <script type="text/javascript" src="ajax.js"></script>
-    <script type="text/javascript" src="toVueList.js">
+    <script src="vue.js "></script>
+    <script type="text/javascript " src="fireCreds.js "></script>
+    <script type="text/javascript " src="ajax.js "></script>
+    <script type="text/javascript " src="toVueList.js ">
     </script>
 </body>
 
